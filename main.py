@@ -44,10 +44,10 @@ if __name__ == "__main__":
 
     # Plot the data
     plt.figure(figsize=(12, 6))
-    plt.plot(timesteps, avg_rewards_1, linestyle='-', color='g', label='Agent 1')
-    plt.plot(timesteps, avg_rewards_2, linestyle='-', color='b', label='Agent 2')
-    plt.plot(timesteps, avg_rewards_3, linestyle='-', color='r', label='Agent 3')
-    plt.plot(timesteps, avg_rewards_4, linestyle='-', color='m', label='Agent 4')
+    plt.plot(timesteps, avg_rewards_1, linestyle='-', color='g', label='Epsilon Greedy')
+    plt.plot(timesteps, avg_rewards_2, linestyle='-', color='b', label='UCB')
+    plt.plot(timesteps, avg_rewards_3, linestyle='-', color='r', label='KLUCB')
+    plt.plot(timesteps, avg_rewards_4, linestyle='-', color='m', label='Thompson sampling')
 
     # Formatting
     plt.title('Average Reward Over Time', fontsize=16)
@@ -69,10 +69,10 @@ if __name__ == "__main__":
 
     # Plot the data
     plt.figure(figsize=(8,4))
-    plt.plot(timesteps, bandit_1.cumulative_regret_array, linestyle='-', color='g', label='Agent_1')
-    plt.plot(timesteps, bandit_2.cumulative_regret_array, linestyle='-', color='r', label='Agent_2')
-    plt.plot(timesteps, bandit_3.cumulative_regret_array, linestyle='-', color='b', label='Agent_3')
-    plt.plot(timesteps, bandit_4.cumulative_regret_array, linestyle='-', color='m', label='Agent_4')
+    plt.plot(timesteps, bandit_1.cumulative_regret_array, linestyle='-', color='g', label='Epsilon Greedy')
+    plt.plot(timesteps, bandit_2.cumulative_regret_array, linestyle='-', color='r', label='UCB')
+    plt.plot(timesteps, bandit_3.cumulative_regret_array, linestyle='-', color='b', label='KLUCB')
+    plt.plot(timesteps, bandit_4.cumulative_regret_array, linestyle='-', color='m', label='Thompson Sampling')
 
     # Formatting
     plt.title('Cumulative Regret Over Time', fontsize=16)
@@ -191,17 +191,17 @@ if __name__ == "__main__":
     indices = np.arange(len(Final_regret_bandit_2_agent_4))
     # Plot the data
     plt.figure(figsize=(8,4))
-    plt.plot(indices, Final_regret_bandit_1_agent_1, linestyle='-', color='g', label='Agent_1')
-    plt.plot(indices, Final_regret_bandit_1_agent_2, linestyle='-', color='r', label='Agent_2')
-    plt.plot(indices, Final_regret_bandit_1_agent_3, linestyle='-', color='b', label='Agent_3')
-    plt.plot(indices, Final_regret_bandit_1_agent_4, linestyle='-', color='m', label='Agent_4')
+    plt.plot(indices, Final_regret_bandit_1_agent_1, linestyle='-', color='g', label='Epsilon_Greedy')
+    plt.plot(indices, Final_regret_bandit_1_agent_2, linestyle='-', color='r', label='UCB')
+    plt.plot(indices, Final_regret_bandit_1_agent_3, linestyle='-', color='b', label='KLUCB')
+    plt.plot(indices, Final_regret_bandit_1_agent_4, linestyle='-', color='m', label='Thompson_sampling')
 
     # Formatting
     plt.title('Final regret for bandit_1', fontsize=16)
-    plt.xlabel('p_value', fontsize=14)
+    plt.xlabel('Game index', fontsize=14)
     plt.ylabel('Final_regret', fontsize=14)
     plt.grid(True, which='both', linestyle='-', linewidth=0.5)
-    plt.xticks(indices,[(i+2)/2 for i in indices])
+    plt.xticks(indices,[f'Game{i+1}' for i in indices],rotation=45, ha='right')
 
     # Add legend
     plt.legend(loc='upper left', fontsize=12)
@@ -215,17 +215,17 @@ if __name__ == "__main__":
     # Bandit 2
     # Plot the data
     plt.figure(figsize=(8,4))
-    plt.plot(indices, Final_regret_bandit_2_agent_1, linestyle='-', color='g', label='Agent_1')
-    plt.plot(indices, Final_regret_bandit_2_agent_2, linestyle='-', color='r', label='Agent_2')
-    plt.plot(indices, Final_regret_bandit_2_agent_3, linestyle='-', color='b', label='Agent_3')
-    plt.plot(indices, Final_regret_bandit_2_agent_4, linestyle='-', color='m', label='Agent_4')
+    plt.plot(indices, Final_regret_bandit_2_agent_1, linestyle='-', color='g', label='Epsilon_Greedy')
+    plt.plot(indices, Final_regret_bandit_2_agent_2, linestyle='-', color='r', label='UCB')
+    plt.plot(indices, Final_regret_bandit_2_agent_3, linestyle='-', color='b', label='KLUCB')
+    plt.plot(indices, Final_regret_bandit_2_agent_4, linestyle='-', color='m', label='Thompson_sampling')
 
     # Formatting
-    plt.title('Final regret for bandit_1', fontsize=16)
-    plt.xlabel('p_value', fontsize=14)
+    plt.title('Final regret for bandit_2', fontsize=16)
+    plt.xlabel('Game index', fontsize=14)
     plt.ylabel('Final_regret', fontsize=14)
     plt.grid(True, which='both', linestyle='-', linewidth=0.5)
-    plt.xticks(indices,[(i+2)/20 for i in indices])
+    plt.xticks(indices,[f'Game{i+1}' for i in indices],rotation=45, ha='right')
 
     # Add legend
     plt.legend(loc='upper left', fontsize=12)
